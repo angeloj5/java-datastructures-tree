@@ -1,5 +1,7 @@
 package com.java.datastructures.binarysearch;
 
+import java.io.Console;
+
 public class node {
 	public int MiData = 0;
 	public node right = null;
@@ -80,6 +82,25 @@ public class node {
 				return LiMaxValue;
 			else
 				return PoNode.MiData;
+		}
+	}
+
+	public void printTree(node PoNode) {
+		if (PoNode == null)
+			return;
+
+		printTree(PoNode.left);
+		System.out.print(PoNode.MiData);
+		printTree(PoNode.right);
+	}
+
+	public void printPostorder(node PoNode) {
+		if (PoNode == null)
+			return;
+		else {
+			printPostorder(PoNode.left);
+			printPostorder(PoNode.right);
+			System.out.print(PoNode.MiData);
 		}
 	}
 }

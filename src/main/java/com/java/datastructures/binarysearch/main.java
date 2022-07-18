@@ -20,6 +20,8 @@ public class main {
 		int LiMaxDepth = LoRoot.maxDepth(LoRoot);
 		int LiMinValue = LoRoot.minValue(LoRoot);
 		int LiMaxValue = LoRoot.maxValue(LoRoot);
+		//LoRoot.printTree(LoRoot);
+		LoRoot.printPostorder(LoRoot);
 		
 		LoRoot = null;
 
@@ -32,6 +34,8 @@ public class main {
 		LiMaxDepth = LoRoot.maxDepth(LoRoot);
 		LiMinValue = LoRoot.minValue(LoRoot);
 		LiMaxValue = LoRoot.maxValue(LoRoot);
+		//LoRoot.printTree(LoRoot);
+		LoRoot.printPostorder(LoRoot);
 		
 		LoRoot = null;
 
@@ -46,8 +50,20 @@ public class main {
 		LiMaxDepth = LoRoot.maxDepth(LoRoot);
 		LiMinValue = LoRoot.minValue(LoRoot);
 		LiMaxValue = LoRoot.maxValue(LoRoot);
+		//LoRoot.printTree(LoRoot);
+		LoRoot.printPostorder(LoRoot);
 		
 		// Given a binary tree, count the number of nodes in the tree.
 		LiSize = LoRoot.size(LoRoot);
+		
+		System.out.println("");
+		
+		LoRoot = new node(0);
+		LoRoot = LoRoot.insert(null, 4);
+		LoRoot = LoRoot.insert(LoRoot, 2);
+		LoRoot = LoRoot.insert(LoRoot, 5);
+		LoRoot = LoRoot.insert(LoRoot, 1);
+		LoRoot = LoRoot.insert(LoRoot, 3);
+		LoRoot.printPostorder(LoRoot);
 	}
 }
