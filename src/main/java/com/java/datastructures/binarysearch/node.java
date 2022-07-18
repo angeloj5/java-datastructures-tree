@@ -41,6 +41,45 @@ public class node {
 		if (PoNode == null)
 			return 0;
 		else
-			return size(PoNode.left) + 0 + size(PoNode.right);
+			return size(PoNode.left) + 1 + size(PoNode.right);
+	}
+
+	public int maxDepth(node PoNode) {
+		if (PoNode == null)
+			return 0;
+		else {
+			int LiLeftDepth = maxDepth(PoNode.left);
+			int LiRightDepth = maxDepth(PoNode.right);
+
+			if (LiLeftDepth > LiRightDepth)
+				return LiLeftDepth + 1;
+			else
+				return LiRightDepth + 1;
+		}
+	}
+
+	public int minValue(node PoNode) {
+		if (PoNode == null)
+			return Integer.MAX_VALUE;
+		else {
+			int LiMinValue = minValue(PoNode.left);
+
+			if (LiMinValue < PoNode.MiData)
+				return LiMinValue;
+			else
+				return PoNode.MiData;
+		}
+	}
+
+	public int maxValue(node PoNode) {
+		if (PoNode == null)
+			return 0;
+		else {
+			int LiMaxValue = maxValue(PoNode.right);
+			if (LiMaxValue > PoNode.MiData)
+				return LiMaxValue;
+			else
+				return PoNode.MiData;
+		}
 	}
 }

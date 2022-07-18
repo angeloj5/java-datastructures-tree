@@ -17,14 +17,22 @@ public class main {
 		LoRoot.right = LoRight;
 
 		int LiSize = LoRoot.size(LoRoot);
-
+		int LiMaxDepth = LoRoot.maxDepth(LoRoot);
+		int LiMinValue = LoRoot.minValue(LoRoot);
+		int LiMaxValue = LoRoot.maxValue(LoRoot);
+		
 		LoRoot = null;
 
 		// b: by calling newNode() three times, and using only one pointer variable
 		LoRoot = new node(2);
 		LoRoot.left = new node(1);
 		LoRoot.right = new node(3);
+
 		LiSize = LoRoot.size(LoRoot);
+		LiMaxDepth = LoRoot.maxDepth(LoRoot);
+		LiMinValue = LoRoot.minValue(LoRoot);
+		LiMaxValue = LoRoot.maxValue(LoRoot);
+		
 		LoRoot = null;
 
 		// c: by calling insert() three times passing it the root pointer to build up
@@ -35,9 +43,11 @@ public class main {
 		LoRoot = LoRoot.insert(LoRoot, 1);
 
 		LiSize = LoRoot.size(LoRoot);
-
+		LiMaxDepth = LoRoot.maxDepth(LoRoot);
+		LiMinValue = LoRoot.minValue(LoRoot);
+		LiMaxValue = LoRoot.maxValue(LoRoot);
+		
 		// Given a binary tree, count the number of nodes in the tree.
 		LiSize = LoRoot.size(LoRoot);
 	}
-
 }
