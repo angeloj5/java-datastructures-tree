@@ -65,5 +65,40 @@ public class main {
 		LoRoot = LoRoot.insert(LoRoot, 1);
 		LoRoot = LoRoot.insert(LoRoot, 3);
 		LoRoot.printPostorder(LoRoot);
+		
+		LoRoot = new node(0);
+		LoRoot = LoRoot.insert(null, 5);
+		LoRoot = LoRoot.insert(LoRoot, 4);
+		LoRoot = LoRoot.insert(LoRoot, 8);
+		LoRoot = LoRoot.insert(LoRoot, 11);
+		LoRoot = LoRoot.insert(LoRoot, 7);
+		LoRoot = LoRoot.insert(LoRoot, 2);
+		LoRoot = LoRoot.insert(LoRoot, 13);
+		LoRoot = LoRoot.insert(LoRoot, 4);
+		LoRoot = LoRoot.insert(LoRoot, 1);
+		
+		LbResult = LoRoot.hasPathSum(LoRoot, 12);
+		LbResult = LoRoot.hasPathSum(12);
+		
+		LoRoot.printPaths();
+		
+		LoRoot.mirror(LoRoot);
+		System.out.println("mirroring tree");
+		LoRoot.printPaths();
+		
+		
+		LoRoot = new node(0);
+		LoRoot = LoRoot.insert(null, 2);
+		LoRoot = LoRoot.insert(LoRoot, 1);
+		LoRoot = LoRoot.insert(LoRoot, 3);
+		
+		node LoSecondNode = new node(2);
+		
+		LoRoot.doubleTree(LoRoot);
+		
+		
+		
+		LbResult = LoRoot.sameTree(LoRoot, LoSecondNode);
+		System.out.print(LbResult);
 	}
 }

@@ -1,7 +1,5 @@
 package com.java.datastructures.binarysearch;
 
-import java.io.Console;
-
 public class node {
 	public int MiData = 0;
 	public node right = null;
@@ -102,5 +100,84 @@ public class node {
 			printPostorder(PoNode.right);
 			System.out.print(PoNode.MiData);
 		}
+	}
+
+	public Boolean hasPathSum(int PiSum) {
+		return hasPathSum(this, PiSum);
+	}
+
+	public Boolean hasPathSum(node PoNode, int PiSum) {
+		if (PoNode == null)
+			return (PiSum == 0);
+		else {
+			int LiSum = PiSum - PoNode.MiData;
+			return (hasPathSum(PoNode.left, LiSum) || hasPathSum(PoNode.left, LiSum));
+		}
+	}
+
+	public void printPaths() {
+		int[] LiPaths = new int[this.size(this)];
+		this.printPaths(this, LiPaths, 0);
+	}
+
+	private void printPaths(node PoNode, int[] PiPaths, int PiLength) {
+		if (PoNode == null)
+			return;
+		else {
+			PiPaths[PiLength] = PoNode.MiData;
+			PiLength++;
+
+			if (PoNode.right == null && PoNode.left == null)
+				printArray(PiPaths);
+			else {
+				printPaths(PoNode.left, PiPaths, PiLength);
+				printPaths(PoNode.right, PiPaths, PiLength);
+			}
+		}
+	}
+
+	private void printArray(int[] PiArray) {
+		System.out.println("");
+		if (PiArray.length > 1) {
+			System.out.print(" [start] ");
+			for (int LiElement = 0; LiElement < PiArray.length; LiElement++)
+				System.out.print(PiArray[LiElement] + " --> ");
+		}
+
+		System.out.print(" [end] ");
+	}
+
+	public void mirror(node PoNode) {
+		if (PoNode != null) {
+			this.mirror(PoNode.left);
+			this.mirror(PoNode.right);
+
+			node LoTempNode = PoNode.left;
+			PoNode.left = PoNode.right;
+			PoNode.right = LoTempNode;
+		}
+	}
+
+	public void doubleTree(node PoNode) {
+		if (PoNode != null) {
+			doubleTree(PoNode.left);
+			doubleTree(PoNode.right);
+
+			node LoTempNode = PoNode.left;
+			node LoNewNode = new node(PoNode.MiData);
+
+			LoNewNode.left = LoTempNode;
+			PoNode.left = LoNewNode;
+		}
+	}
+
+	public Boolean sameTree(node PoFirstTree, node PoSecondTree) {
+		if (PoFirstTree == null && PoSecondTree == null)
+			return true;
+		else if (PoFirstTree != null && PoSecondTree != null)
+			return sameTree(PoFirstTree.left, PoSecondTree.left) && sameTree(PoFirstTree.right, PoSecondTree.right)
+					&& PoFirstTree.MiData == PoSecondTree.MiData;
+
+		return false;
 	}
 }
